@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1715225971.35993 "c:/Users/DELL/Documents/WorkStation/2024/Pw2Lab/Lab3/Informe/Informe Github.tex" "Informe Github.pdf" "Informe Github" 1715225973.52583 0
+["pdflatex"] 1715232142.64722 "c:/Users/DELL/Documents/WorkStation/2024/Pw2Lab/Lab3/Informe/Informe Github.tex" "Informe Github.pdf" "Informe Github" 1715232144.12987 0
   "C:/Users/DELL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1715220536 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/DELL/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1715220550 24239881 5879b6fbb07744cc0a1b1f66f565855b ""
   "C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -118,16 +118,10 @@
   "C:/Users/DELL/AppData/Local/Programs/MiKTeX/tex/latex/ulem/ulem.sty" 1578651445 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
   "C:/Users/DELL/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/DELL/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "Informe Github.aux" 1715225973 1758 573130994b4f130f14afe9da49be9afe "pdflatex"
-  "Informe Github.out" 1715225973 2130 a8e99e4023b03b737c3cc886818226bf "pdflatex"
-  "Informe Github.tex" 1715225966 9289 68e1a844099fab753ce694b0bf54512e ""
-  "c:/Users/DELL/Documents/WorkStation/2024/Pw2Lab/Lab3/Informe/Informe Github.tex" 1715225966 9289 68e1a844099fab753ce694b0bf54512e ""
-  "img/AnthonyCuenta.jpg" 1715219062 32623 ed1d1252b142975581751c05b8becf93 ""
-  "img/AnthonyVersion.jpg" 1715219062 13885 4b0d161b198a92457dec20e3a0f5a590 ""
-  "img/FernandoCuenta.PNG" 1715219062 35961 4ea1027efc8bc201f943821d6bc8a169 ""
-  "img/FernandoVersion.PNG" 1715219062 4341 5076bd41dff5ad4642f5f9799044baac ""
-  "img/LuisCuenta.jpg" 1715219062 37638 b79b4aa9009271528803ce5e8b16e5bb ""
-  "img/LuisVersion.jpg" 1715219062 11600 406d648e84600b946fb88b28bd7efe60 ""
+  "Informe Github.aux" 1715232143 1320 ae6964f9229eb248b198a38795f9fa2a "pdflatex"
+  "Informe Github.out" 1715232143 1330 eca6cad1ecfdfd11842a9e64e091de75 "pdflatex"
+  "Informe Github.tex" 1715232141 8006 8d6c0abcea33df6426152f7257d52f62 ""
+  "c:/Users/DELL/Documents/WorkStation/2024/Pw2Lab/Lab3/Informe/Informe Github.tex" 1715232141 8006 8d6c0abcea33df6426152f7257d52f62 ""
   "img/WilliamCuenta.jpg" 1715219062 94806 8543f4d688e8569d4f4bb0982d17ef39 ""
   "img/WilliamVersion.jpg" 1715219062 698939 46b4d718a6edcd8e981506d005989d3c ""
   "img/logo_abet.png" 1715219062 6307 419a1d1911db3872e78cc7f9d6dfea5f ""

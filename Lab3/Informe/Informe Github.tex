@@ -18,12 +18,12 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \lstdefinestyle{ascii-tree}{
-    literate={├}{|}1 {─}{--}1 {└}{+}1 
-  }
+	literate={├}{|}1 {─}{--}1 {└}{+}1 
+}
 \lstset{basicstyle=\ttfamily,
-  showstringspaces=false,
-  commentstyle=\color{red},
-  keywordstyle=\color{blue}
+	showstringspaces=false,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
 }
 %\usepackage{booktabs}
 \usepackage{caption}
@@ -37,10 +37,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\itemEmail}{lluquecon@unsa.edu.pe fgarambel@unsa.edu.pe ajrahuacso@unsa.edu.pe wchoquehuancab@unsa.edu.pe}
-\newcommand{\itemStudent}{Luis Guillermo Luque Condori, Fernando Miguel Garambel Marín, William Herderson Choquehuanca Berna, Jeans Anthony Ajra Huacso}
+\newcommand{\itemEmail}{wchoquehuancab@unsa.edu.pe}
+\newcommand{\itemStudent}{William Herderson Choquehuanca Berna}
 \newcommand{\itemCourse}{Laboratorio de P web}
-\newcommand{\itemCourseCode}{20233478}
+\newcommand{\itemCourseCode}{20233469}
 \newcommand{\itemSemester}{III}
 \newcommand{\itemUniversity}{Universidad Nacional de San Agustín de Arequipa}
 \newcommand{\itemFaculty}{Facultad de Ingeniería de Producción y Servicios}
@@ -113,18 +113,18 @@
 	\end{center}
 	\centerline{\textbf{\Large Tema: \itemTheme}}
 	%\vspace*{0.5cm}	
-
+	
 	\begin{flushright}
 		\begin{tabular}{|M{2.5cm}|N|}
 			\hline 
 			\rowcolor{tablebackground}
 			\color{white} \textbf{Nota}  \\
 			\hline 
-			     \\[30pt]
+			\\[30pt]
 			\hline 			
 		\end{tabular}
 	\end{flushright}	
-
+	
 	\begin{table}[H]
 		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
 			\hline 
@@ -163,7 +163,7 @@
 		\item Cree una cuenta de usuario en github
 		\item Configure su cuenta de estudiante (https://education.github.com/pack).
 	\end{itemize}
-\section{Ejercicios Propuestos}
+	\section{Ejercicios Propuestos}
 	\begin{itemize}		
 		\item Forme grupos de 3 a 5 personas
 		\item Un integrante del grupo deberá crear el proyecto principal, con el nombre de su grupo, con la plantilla base
@@ -171,7 +171,7 @@
 		\item Los integrantes del grupo deberán hacer clone, push y pull según corresponda, de modo que el repositorio contenga la solución final.
 		\item Reportar al profesor que logró culminar la tarea. La tarea debe ser compartida con el profesor (CarloCorralesD) y entregada usando el mismo url que se usó para clonar el repositorio.
 	\end{itemize}
-
+	
 	\section{Equipos, materiales y temas utilizados}
 	\begin{itemize}
 		\item Sistema operativo de 64 bits, procesador basado en x64.
@@ -188,7 +188,7 @@
 	\end{itemize}
 	\clearpage
 	\section{Capturas de pantalla de la cuenta y la version}
-		\subsection{Captura de Fernando Miguel Garambel Marín}
+	\subsection{Captura de Fernando Miguel Garambel Marín}
 	\begin{itemize}
 		\item Version
 	\end{itemize}
@@ -276,122 +276,15 @@
 		%\caption{Product backlog.}
 	\end{figure}
 	\clearpage
-\section{Calculadora en Java}
-	\subsection{Clase Calculator}
-	\lstinputlisting[language=Java, caption={Código de Calculator},numbers=left,]{src/Calculator.java}
-	\begin{itemize}
-		\item  A continuación se explicaran los métodos utilizados en Calculator.
-	\end{itemize}
-	\subsection{Método add}
-	\begin{lstlisting}[language=bash,caption={Código del método add}][H]
-		int add(int a, int b){
-        		int resultado = a + b;
-        		return resultado;
-    		}	
-	\end{lstlisting}
-	\begin{itemize}
-		\item  Para utilizar este método se creó el método sumar que es el que interactua con el usuario
-	\end{itemize}
-	\begin{lstlisting}[language=bash,caption={Código del método sumar}][H]
-	public void sumar(){
-        System.out.println("Ingrese los dos numeros a sumar: ");
-        System.out.print("Numero 1: ");
-        int a = sc.nextInt();
-        System.out.print("Numero 2: ");
-        int b = sc.nextInt();
-        int resultado = add(a, b);
-        System.out.println("El resultado de la suma es: " + resultado + "\n");
-    }	
-	\end{lstlisting}
-	\subsection{Método sub}
-	\begin{lstlisting}[language=bash,caption={Código del método sub}][H]
-		int sub(int a, int b){
-        int resultado = a - b;
-        return resultado; 
-    }	
-	\end{lstlisting}
-	\begin{itemize}
-		\item  Para utilizar este método se creó el método restar que es el que interactua con el usuario
-	\end{itemize}
-	\begin{lstlisting}[language=bash,caption={Código del método restar}][H]
-		public void restar(){
-			System.out.println("Ingrese los dos numeros a restar: ");
-			System.out.print("Numero 1: ");
-			int a = sc.nextInt();
-			System.out.print("Numero 2: ");
-			int b = sc.nextInt();
-			int resultado = sub(a, b);
-			System.out.println("El resultado de la resta es: " + resultado + "\n");
-		}	
-	\end{lstlisting}
-	\subsection{Método mul}
-	\begin{lstlisting}[language=bash,caption={Código del método mul}][H]
-		int mul(int a, int b){ 
-        int resultado = a * b;
-        return resultado; 
-    }	
-	\end{lstlisting}
-	\begin{itemize}
-		\item  Para utilizar este método se creó el método multiplicar que es el que interactua con el usuario
-	\end{itemize}
-	\begin{lstlisting}[language=bash,caption={Código del método multiplicar}][H]
-		public void multiplicar(){
-        System.out.println("Ingrese los numeros: ");
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int resultado = mul(a, b);
-        System.out.println("El resultado de la operacion es: " + resultado);
-    }
-	\end{lstlisting}
-	\subsection{Método dividirNumeros}
-	\begin{lstlisting}[language=bash,caption={Código del método dividirNumeros}][H]
-		public void dividirNumeros() {
-        System.out.println("Ingrese los numeros: ");
-        double dividendo = sc.nextDouble();
-        double divisor = sc.nextDouble();
-
-        if (divisor == 0) {
-            System.out.println("Error: No se puede dividir por cero.");
-        }
-
-        double respuesta = dividendo / divisor;
-        System.out.println("El resultado es: " + respuesta);
- 
-    }
-	\end{lstlisting}
-	\subsection{Método mod}
-	\begin{lstlisting}[language=bash,caption={Código del método mod}][H]
-		int mod(int a, int b){
-        int resultado = a % b;
-        return resultado; 
-    }
-	\end{lstlisting}
-	\begin{itemize}
-		\item  Para utilizar este método se creó el método modulo que es el que interactua con el usuario
-	\end{itemize}
-	\begin{lstlisting}[language=bash,caption={Código del método modulo}][H]
-		public void modulo(){
-        System.out.println("Ingrese los numeros: ");
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        System.out.println("El resultado de la operacion es: " + mod(a, b));
-    }
-	\end{lstlisting}
-	\subsection{Main}
-	\lstinputlisting[language=Java, caption={Código Main},numbers=left,]{src/Main.java}
-	\begin{itemize}
-		\item Este método es el que usa todos los métodos de calculator y hace la calculadora al final.
-	\end{itemize}
 	
-	\clearpage
-\section{Referencias}
-\begin{itemize}			
-	\item \url{https://www.w3schools.com/java/default.asp}
-\end{itemize}	
+	\section{Referencias}
+	\begin{itemize}			
+		\item \url{https://www.w3schools.com/java/default.asp}
+	\end{itemize}	
 	
-%\clearpage
-%\bibliographystyle{apalike}
-%\bibliographystyle{IEEEtranN}
-%\bibliography{bibliography}
-			
+	%\clearpage
+	%\bibliographystyle{apalike}
+	%\bibliographystyle{IEEEtranN}
+	%\bibliography{bibliography}
+	
 \end{document}

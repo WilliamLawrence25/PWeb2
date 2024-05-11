@@ -4,3 +4,5 @@ document.getElementById("botonInvertir").addEventListener("click", function(){
     let texInvertido = texto.split("").reverse().join("");
     document.getElementById("resultado").innerText = texInvertido;
 });
+
+

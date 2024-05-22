@@ -1,4 +1,4 @@
 from interpreter import draw
 from chessPictures import *
 
-draw (knight.join(knight))
+draw (knight.verticalRepeat(4))

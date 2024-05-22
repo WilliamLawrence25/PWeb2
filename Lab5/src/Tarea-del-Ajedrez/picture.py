@@ -35,16 +35,16 @@ class Picture:
   def join(self, p):
     """ Devuelve una nueva figura poniendo la figura del argumento 
         al lado derecho de la figura actual """
-    join_img= [self_line + p_line for self_line, p_line in zip(self.img, p.img)]
+    join_img = [self_line + p_line for self_line, p_line in zip(self.img, p.img)]
     return Picture(join_img)
 
   def up(self, p):
-    return Picture(None)
+    return Picture(p.img + self.img)
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
-    return Picture(None)
+    return Picture(self.img + p.img)
   
   def horizontalRepeat(self, n):
     """ Devuelve una nueva figura repitiendo la figura actual al costado

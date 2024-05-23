@@ -39,12 +39,26 @@ class Picture:
     return Picture(join_img)
 
   def up(self, p):
-    return Picture(p.img + self.img)
+    return Picture(self.img + p.img)
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
-    return Picture(self.img + p.img)
+    #return Picture(self.img + p.img)
+    max_height = max(len(self.img), len(p.img))
+    max_width = max(max(len(line) for line in self.img), max(len(line) for line in p.img))
+
+    # Extend both images to the same size
+    new_img_self = [line.ljust(max_width) for line in self.img] + [' ' * max_width] * (max_height - len(self.img))
+    new_img_p = [line.ljust(max_width) for line in p.img] + [' ' * max_width] * (max_height - len(p.img))
+
+    combined_img = []
+    for line_self, line_p in zip(new_img_self, new_img_p):
+        combined_line = ''.join(char_p if char_p != ' ' else char_self for char_self, char_p in zip(line_self, line_p))
+        combined_img.append(combined_line)
+
+    return Picture(combined_img)
+    return Picture(new_img)
   
   def horizontalRepeat(self, n):
     """ Devuelve una nueva figura repitiendo la figura actual al costado

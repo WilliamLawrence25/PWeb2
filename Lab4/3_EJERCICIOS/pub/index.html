@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Markdown</title>
+	<script src = "index.js" ></script>
+</head>
+<body>
+    <h1>Lista de Markdown disponibles</h1>
+	<ul id="markdownList"></ul> 
+    <p>El contenido del archivo seleccionado es: </p>
+	<div id="markdownContent"></div>
+    <h2>Crear un nuevo archivo Markdown</h2>
+    <form id="createMarkdownForm">
+        <label for="fileName">Nombre del archivo:</label>
+        <input type="text" id="fileName" name="fileName" required>
+        <br>
+        <label for="content">Contenido:</label>
+        <textarea id="content" name="content" rows="10" cols="50" required></textarea>
+        <br>
+        <button type="submit">Crear Archivo</button>
+    </form>
+</body>
+</html>

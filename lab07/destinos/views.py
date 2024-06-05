@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
 from django.shortcuts import render, redirect
-from .models import Destino
+from .models import DestinosTuristicos
 from .forms import DestinoForm
 
 def listar_destinos(request):
-    destinos = Destino.objects.all()
+    destinos = DestinosTuristicos.objects.all()
     return render(request, 'destinos/listar.html', {'destinos': destinos})
 
 def añadir_destino(request):
@@ -19,7 +19,7 @@ def añadir_destino(request):
     return render(request, 'destinos/añadir.html', {'form': form})
 
 def modificar_destino(request, id):
-    destino = Destino.objects.get(id=id)
+    destino = DestinosTuristicos.objects.get(id=id)
     if request.method == "POST":
         form = DestinoForm(request.POST, request.FILES, instance=destino)
         if form.is_valid():
@@ -30,7 +30,7 @@ def modificar_destino(request, id):
     return render(request, 'destinos/modificar.html', {'form': form})
 
 def eliminar_destino(request, id):
-    destino = Destino.objects.get(id=id)
+    destino = DestinosTuristicos.objects.get(id=id)
     if request.method == "POST":
         destino.delete()
         return redirect('listar_destinos')

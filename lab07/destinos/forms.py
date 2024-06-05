@@ -1,7 +1,7 @@
 from django import forms
-from .models import Destino
+from .models import DestinosTuristicos
 
 class DestinoForm(forms.ModelForm):
     class Meta:
-        model = Destino
+        model = DestinosTuristicos
         fields = ['nombreCiudad', 'descripcionCiudad', 'imagenCiudad', 'precioTour', 'ofertaTour']

@@ -31,7 +31,7 @@ header h1 {
 
 /* Main Content Styles */
 main {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background: #fff;
@@ -133,32 +133,9 @@ form button:hover {
     transform: translateY(-2px);
 }
 
-/* Link Styles */
-a {
-    color: #1abc9c;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 /* Footer Styles */
 footer {
     text-align: center;
     margin-top: 20px;
     color: #777;
-}
-
-/* Additional Utility Classes */
-.text-center {
-    text-align: center;
-}
-
-.mt-20 {
-    margin-top: 20px;
-}
-
-.mb-20 {
-    margin-bottom: 20px;
 }

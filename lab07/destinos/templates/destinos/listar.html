@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Lista de Destinos Turísticos</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>Destinos Turísticos</h1>
@@ -11,7 +12,7 @@
         <li>
             <h2>{{ destino.nombreCiudad }}</h2>
             <p>{{ destino.descripcionCiudad }}</p>
-            <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}">
+            <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}" width="200">
             <p>Precio: {{ destino.precioTour }}</p>
             <p>Oferta: {% if destino.ofertaTour %}Sí{% else %}No{% endif %}</p>
             <a href="{% url 'modificar_destino' destino.id %}">Modificar</a>

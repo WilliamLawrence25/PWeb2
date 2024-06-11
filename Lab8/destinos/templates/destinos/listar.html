@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Destinos Turísticos</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Destinos Turísticos</h1>
+    </header>
+    <main>
+        <div class="text-center mb-20">
+            <a href="{% url 'añadir_destino' %}" class="button">Añadir Destino</a>
+        </div>
+        <ul>
+            {% for destino in destinos %}
+            <li>
+                <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}">
+                <div>
+                    <h2>{{ destino.nombreCiudad }}</h2>
+                    <p>{{ destino.descripcionCiudad }}</p>
+                    <p>Precio: {{ destino.precioTour }}</p>
+                    <p>Oferta: {% if destino.ofertaTour %}Sí{% else %}No{% endif %}</p>
+                    <a href="{% url 'modificar_destino' destino.id %}">Modificar</a>
+                    <a href="{% url 'eliminar_destino' destino.id %}">Eliminar</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Destinos Turísticos</p>
+    </footer>
+</body>
+</html>

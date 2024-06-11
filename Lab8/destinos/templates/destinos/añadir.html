@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Añadir Destino Turístico</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Añadir Destino Turístico</h1>
+    </header>
+    <main>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+        <div class="text-center mt-20">
+            <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Destinos Turísticos</p>
+    </footer>
+</body>
+</html>

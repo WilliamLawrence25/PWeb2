@@ -63,3 +63,7 @@ def listar_categorias(request):
     categorias = Categoria.objects.all()
     return render(request, 'destinos/listar_categorias.html', {'categorias': categorias})
 
+def detalles_destino(request, destino_id):
+    destino = get_object_or_404(DestinosTuristicos, pk=destino_id)
+    comentarios = Comentario.objects.filter(destino=destino)
+    return render(request, 'destinos/detalles_destino.html', {'destino': destino, 'comentarios': comentarios})

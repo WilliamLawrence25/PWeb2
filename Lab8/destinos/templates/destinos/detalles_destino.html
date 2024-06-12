@@ -1,0 +1,41 @@
+<!-- templates/destinos/detalles_destino.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalles del Destino Turístico</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ destino.nombreCiudad }}</h1>
+    </header>
+    <main>
+        <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}">
+        <div>
+            <h2>Descripción</h2>
+            <p>{{ destino.descripcionCiudad }}</p>
+            <h2>Precio</h2>
+            <p>{{ destino.precioTour }}</p>
+            <h2>Oferta</h2>
+            <p>{% if destino.ofertaTour %}Sí{% else %}No{% endif %}</p>
+        </div>
+        <section>
+            <h2>Comentarios</h2>
+            <ul>
+                {% for comentario in comentarios %}
+                <li>
+                    <p><strong>{{ comentario.autor }}</strong> ({{ comentario.fecha }}):</p>
+                    <p>{{ comentario.contenido }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'añadir_comentario' destino.id %}">Añadir Comentario</a>
+        </section>
+        <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Destinos Turísticos</p>
+    </footer>
+</body>
+</html>

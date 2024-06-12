@@ -2,15 +2,24 @@
 <html>
 <head>
     <title>Añadir Categoría</title>
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Añadir Categoría</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Categoría</button>
-    </form>
-    <a href="{% url 'listar_categorias' %}">Ver Categorías</a>
+    <header>
+        <h1>Añadir Categoría</h1>
+    </header>
+    <main>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar Categoría</button>
+        </form>
+        <a href="{% url 'listar_categorias' %}">Ver Categorías</a>
+        <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Destinos Turísticos</p>
+    </footer>
 </body>
 </html>

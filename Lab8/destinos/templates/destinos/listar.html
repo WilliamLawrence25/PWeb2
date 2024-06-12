@@ -12,6 +12,7 @@
     <main>
         <div class="text-center mb-20">
             <a href="{% url 'añadir_destino' %}" class="button">Añadir Destino</a>
+            <a href="{% url 'listar_categorias' %}" class="button">Ver Categorías</a>
         </div>
         <ul>
             {% for destino in destinos %}
@@ -24,6 +25,16 @@
                     <p>Oferta: {% if destino.ofertaTour %}Sí{% else %}No{% endif %}</p>
                     <a href="{% url 'modificar_destino' destino.id %}">Modificar</a>
                     <a href="{% url 'eliminar_destino' destino.id %}">Eliminar</a>
+                    <a href="{% url 'añadir_comentario' destino.id %}">Añadir Comentario</a>
+                    <h3>Comentarios</h3>
+                    <ul>
+                        {% for comentario in destino.comentario_set.all %}
+                        <li>
+                            <strong>{{ comentario.autor }}</strong> - {{ comentario.fecha }}
+                            <p>{{ comentario.contenido }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </li>
             {% endfor %}

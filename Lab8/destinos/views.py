@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
-from django.shortcuts import render, redirect
-from .models import DestinosTuristicos
-from .forms import DestinoForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import DestinosTuristicos, Comentario, Categoria
+from .forms import DestinoForm, ComentarioForm, CategoriaForm
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -35,3 +35,26 @@ def eliminar_destino(request, id):
         destino.delete()
         return redirect('listar_destinos')
     return render(request, 'destinos/eliminar.html', {'destino': destino})
+
+def añadir_comentario(request, destino_id):
+    destino = get_object_or_404(DestinosTuristicos, pk=destino_id)
+    if request.method == "POST":
+        form = ComentarioForm(request.POST)
+        if form.id_valid():
+            comentario = form.save(commit=False)
+            comentario.destino = destino
+            comentario.save()
+            return redirect('detalles_destino', destino_id=destino.id)
+    else:
+        form = ComentarioForm()
+    return render(request, 'destinos/añadir_comentario.html', {'form': form, 'destino': destino})
+
+def añadir_categorias(request):
+    if request.method == "POST":
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_categorias')
+    else:
+        form = CategoriaForm()
+    return render(request, 'destinos/añadir_categoria.html', {'form': form})

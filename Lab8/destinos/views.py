@@ -40,7 +40,7 @@ def añadir_comentario(request, destino_id):
     destino = get_object_or_404(DestinosTuristicos, pk=destino_id)
     if request.method == "POST":
         form = ComentarioForm(request.POST)
-        if form.id_valid():
+        if form.is_valid():
             comentario = form.save(commit=False)
             comentario.destino = destino
             comentario.save()

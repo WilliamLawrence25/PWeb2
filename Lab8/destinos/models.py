@@ -17,7 +17,7 @@ class Comentario(models.Model):
     destino = models.ForeignKey(DestinosTuristicos, on_delete=models.CASCADE)
     autor = models.CharField(max_length=100)
     contenido = models.TextField()
-    fecha = models.DateTimeField()
+    fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.contenido[:50] + "..."

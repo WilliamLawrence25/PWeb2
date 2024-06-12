@@ -14,7 +14,7 @@ class DestinosTuristicos(models.Model):
         return self.nombre
 
 class Comentario(models.Model):
-    destino = models.ForeingKey(DestinosTuristicos, on_delete=models.CASCADE)
+    destino = models.ForeignKey(DestinosTuristicos, on_delete=models.CASCADE)
     autor = models.CharField(max_length=100)
     contenido = models.TextField()
     fecha = models.DateTimeField()

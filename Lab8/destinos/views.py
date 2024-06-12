@@ -58,3 +58,8 @@ def añadir_categorias(request):
     else:
         form = CategoriaForm()
     return render(request, 'destinos/añadir_categoria.html', {'form': form})
+
+def listar_categorias(request):
+    categorias = Categoria.objects.all()
+    return render(request, 'destinos/listar_categorias.html', {'categorias': categorias})
+

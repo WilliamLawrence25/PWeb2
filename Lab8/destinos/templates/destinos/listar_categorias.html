@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Categorías</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Categorías</h1>
+    <a href="{% url 'añadir_categoria' %}">Añadir Categoría</a>
+    <ul>
+        {% for categoria in categorias %}
+        <li>
+            <h2>{{ categoria.nombre }}</h2>
+            <ul>
+                {% for destino in categoria.destinos.all %}
+                <li>{{ destino.nombreCiudad }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+</body>
+</html>

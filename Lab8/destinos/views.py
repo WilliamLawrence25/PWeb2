@@ -49,7 +49,7 @@ def añadir_comentario(request, destino_id):
         form = ComentarioForm()
     return render(request, 'destinos/añadir_comentario.html', {'form': form, 'destino': destino})
 
-def añadir_categorias(request):
+def añadir_categoria(request):
     if request.method == "POST":
         form = CategoriaForm(request.POST)
         if form.is_valid():

@@ -14,4 +14,4 @@ class ComentarioForm(forms.ModelForm):
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
-        field = ['nombre', 'destinos']
+        fields = ['nombre', 'destinos']

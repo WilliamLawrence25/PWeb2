@@ -36,6 +36,7 @@
         <div class="navigation">
             <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
             <a href="{% url 'listar_categorias' %}">Listar Categorías</a>
+            <a href="{% url 'generar_pdf' destino.id %}">Imprimir PDF</a>
         </div>
     </main>
     <footer>

@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import DestinosTuristicos, Comentario, Categoria
 from .forms import DestinoForm, ComentarioForm, CategoriaForm
 from django.http import HttpResponse
-from django.template.loader import render_to_string
-from weasyprint import HTML
+from django.template.loader import render_to_string, get_template
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -77,9 +80,15 @@ def detalles_destino(request, destino_id):
 
 def generar_pdf(request, destino_id):
     destino = get_object_or_404(DestinosTuristicos, id=destino_id)
-    html_string = render_to_string('destinos/pdf_template.html', {'destino':destino})
-    html = HTML(string=html_string)
-    response = HttpResponse(content_type='aplication_pdf')
-    response['Content-Disposition'] = f'attachment; filename="destino_{destino_id}.pdf"'
-    html.white_pdf(response)
-    return response
+
+    buffer = BytesIO()
+    p = canvas.Canvas(buffer, pagesize=letter)
+    p.drawString(100, 750, f"Detalles del Destino: {destino.nombreCiudad}")
+    p.drawString(100, 730, f"Descripción: {destino.descripcionCiudad}")
+    p.drawString(100, 710, f"Precio: {destino.precioTour}")
+    p.drawString(100, 690, f"Oferta: {'Sí' if destino.ofertaTour else 'No'}")
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+    return HttpResponse(buffer, content_type='application/pdf')

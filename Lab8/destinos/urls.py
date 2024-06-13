@@ -11,6 +11,6 @@ urlpatterns = [
     path('categoria/añadir/', views.añadir_categoria, name='añadir_categoria'),
     path('categorias/', views.listar_categorias, name='listar_categorias'),
     path('detalles/<int:destino_id>/', views.detalles_destino, name='detalles_destino'),
-    path('destino/<int:destino_id>/', views.generar_pdf, name='generar_pdf'),
-    
+    path('destino/<int:destino_id>/pdf/', views.generar_pdf, name='generar_pdf'),
+
 ]

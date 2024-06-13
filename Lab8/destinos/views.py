@@ -49,6 +49,12 @@ def añadir_comentario(request, destino_id):
         form = ComentarioForm()
     return render(request, 'destinos/añadir_comentario.html', {'form': form, 'destino': destino})
 
+def eliminar_comentario(request, comentario_id):
+    comentario = get_object_or_404(Comentario, pl=comentario_id)
+    destino_id = comentario.destino.id
+    comentario.delete()
+    return redirect('detalles_destino', destino_id=destino_id)
+
 def añadir_categoria(request):
     if request.method == "POST":
         form = CategoriaForm(request.POST)

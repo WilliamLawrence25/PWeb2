@@ -27,6 +27,7 @@
                 <li>
                     <p><strong>{{ comentario.autor }}</strong> ({{ comentario.fecha }}):</p>
                     <p>{{ comentario.contenido }}</p>
+                    <a href="{% url 'eliminar_comentario' comentario.id %}" onclick="return confirm('¿Estás seguro de que deseas eliminar este comentario?');">Eliminar</a>
                 </li>
                 {% endfor %}
             </ul>

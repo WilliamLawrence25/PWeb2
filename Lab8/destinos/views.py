@@ -1,8 +1,9 @@
-from django.shortcuts import render
-
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import DestinosTuristicos, Comentario, Categoria
 from .forms import DestinoForm, ComentarioForm, CategoriaForm
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from weasyprint import HTML
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -73,3 +74,12 @@ def detalles_destino(request, destino_id):
     destino = get_object_or_404(DestinosTuristicos, pk=destino_id)
     comentarios = Comentario.objects.filter(destino=destino)
     return render(request, 'destinos/detalles_destino.html', {'destino': destino, 'comentarios': comentarios})
+
+def generar_pdf(request, destino_id):
+    destino = get_object_or_404(DestinosTuristicos, id=destino_id)
+    html_string = render_to_string('destinos/pdf_template.html', {'destino':destino})
+    html = HTML(string=html_string)
+    response = HttpResponse(content_type='aplication_pdf')
+    response['Content-Disposition'] = f'attachment; filename="destino_{destino_id}.pdf"'
+    html.white_pdf(response)
+    return response

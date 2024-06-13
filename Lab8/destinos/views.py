@@ -6,7 +6,7 @@ from django.template.loader import render_to_string, get_template
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-
+from textwrap import wrap
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -83,10 +83,26 @@ def generar_pdf(request, destino_id):
 
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
+
+    width, height = letter
+
     p.drawString(100, 750, f"Detalles del Destino: {destino.nombreCiudad}")
-    p.drawString(100, 730, f"Descripción: {destino.descripcionCiudad}")
-    p.drawString(100, 710, f"Precio: {destino.precioTour}")
-    p.drawString(100, 690, f"Oferta: {'Sí' if destino.ofertaTour else 'No'}")
+    y = 730
+
+    def draw_text(text, x, y, width, p):
+        lines = wrap(text, width=80)
+        for line in lines:
+            p.drawString(x, y, line)
+            y -= 15
+        return y
+
+    y = draw_text(f"Descripción: {destino.descripcionCiudad}", 100, y, width - 200, p)
+    y -= 20 
+
+    p.drawString(100, y, f"Precio: {destino.precioTour}")
+    y -= 20
+    p.drawString(100, y, f"Oferta: {'Sí' if destino.ofertaTour else 'No'}")
+
     p.showPage()
     p.save()
 

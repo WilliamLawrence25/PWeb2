@@ -11,7 +11,7 @@ class DestinosTuristicos(models.Model):
     ofertaTour = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return self.nombre
+        return self.nombreCiudad
 
 class Comentario(models.Model):
     destino = models.ForeignKey(DestinosTuristicos, on_delete=models.CASCADE)

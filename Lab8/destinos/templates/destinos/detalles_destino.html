@@ -33,7 +33,10 @@
             </ul>
             <a href="{% url 'añadir_comentario' destino.id %}">Añadir Comentario</a>
         </section>
-        <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+        <div class="navigation">
+            <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+            <a href="{% url 'listar_categorias' %}">Listar Categorías</a>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Destinos Turísticos</p>

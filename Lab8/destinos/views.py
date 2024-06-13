@@ -50,7 +50,7 @@ def añadir_comentario(request, destino_id):
     return render(request, 'destinos/añadir_comentario.html', {'form': form, 'destino': destino})
 
 def eliminar_comentario(request, comentario_id):
-    comentario = get_object_or_404(Comentario, pl=comentario_id)
+    comentario = get_object_or_404(Comentario, pk=comentario_id)
     destino_id = comentario.destino.id
     comentario.delete()
     return redirect('detalles_destino', destino_id=destino_id)

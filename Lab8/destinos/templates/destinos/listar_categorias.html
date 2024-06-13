@@ -10,7 +10,7 @@
         <h1>Lista de Categorías</h1>
     </header>
     <main>
-        <a href="{% url 'añadir_categoria' %}">Añadir Categoría</a>
+        <a href="{% url 'añadir_categoria' %}" class="button">Añadir Categoría</a>
         <ul>
             {% for categoria in categorias %}
             <li>
@@ -23,7 +23,7 @@
             </li>
             {% endfor %}
         </ul>
-        <a href="{% url 'listar_destinos' %}">Volver a la lista de destinos</a>
+        <a href="{% url 'listar_destinos' %}" class="button">Volver a la lista de destinos</a>
     </main>
     <footer>
         <p>&copy; 2024 Destinos Turísticos</p>

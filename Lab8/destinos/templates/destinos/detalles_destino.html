@@ -1,4 +1,3 @@
-<!-- templates/destinos/detalles_destino.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
         <h1>{{ destino.nombreCiudad }}</h1>
     </header>
     <main>
-        <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}">
+        <img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}" class="fixed-size">
         <div>
             <h2>Descripción</h2>
             <p>{{ destino.descripcionCiudad }}</p>

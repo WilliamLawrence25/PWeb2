@@ -8,7 +8,8 @@ from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from textwrap import wrap
-
+from urllib.parse import urljoin
+import tempfile
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -101,13 +102,27 @@ def generar_pdf(request, destino_id):
     y = draw_text(f"Descripción: {destino.descripcionCiudad}", 100, y, width - 200, p)
     y -= 20 
 
+    # Decrementar "y" para hacer espacio para la imagen
+    y -= 320
+
+    # Construir la URL completa
+    image_url = urljoin(request.build_absolute_uri('/'), destino.imagenCiudad.url)
+
     try:
-        response = requests.get(destino.imagenCiudad)
+        response = requests.get(image_url)
         img = BytesIO(response.content)
-        p.drawImage(img, 100, y - 100, width=400, height=300)  # Ajusta la posición y tamaño de la imagen según sea necesario
+
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as tmp_file:
+            tmp_file.write(img.getbuffer())
+            tmp_file_path = tmp_file.name
+
+        p.drawImage(tmp_file_path, 100, y, width=400, height=300)  # Ajusta la posición y tamaño de la imagen según sea necesario
     except Exception as e:
-        p.drawString(100, y - 100, "No se pudo cargar la imagen")
+        p.drawString(100, y + 320, "No se pudo cargar la imagen")
         print(f"Error al cargar la imagen: {e}")
+
+    # Decrementar "y" después de la imagen
+    y -= 80
 
     p.drawString(100, y, f"Precio: {destino.precioTour}")
     y -= 20

@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import DestinosTuristicos, Comentario, Categoria
 from .forms import DestinoForm, ComentarioForm, CategoriaForm
@@ -7,6 +8,7 @@ from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from textwrap import wrap
+
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -98,6 +100,14 @@ def generar_pdf(request, destino_id):
 
     y = draw_text(f"Descripción: {destino.descripcionCiudad}", 100, y, width - 200, p)
     y -= 20 
+
+    try:
+        response = requests.get(destino.imagenCiudad)
+        img = BytesIO(response.content)
+        p.drawImage(img, 100, y - 100, width=400, height=300)  # Ajusta la posición y tamaño de la imagen según sea necesario
+    except Exception as e:
+        p.drawString(100, y - 100, "No se pudo cargar la imagen")
+        print(f"Error al cargar la imagen: {e}")
 
     p.drawString(100, y, f"Precio: {destino.precioTour}")
     y -= 20

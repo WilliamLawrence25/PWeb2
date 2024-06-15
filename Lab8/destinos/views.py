@@ -107,7 +107,6 @@ def generar_pdf(request, destino_id):
     # Decrementar "y" para hacer espacio para la imagen
     y -= 320
 
-    # Construir la URL completa
     image_url = urljoin(request.build_absolute_uri('/'), destino.imagenCiudad.url)
 
     try:

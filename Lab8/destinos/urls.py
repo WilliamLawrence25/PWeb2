@@ -12,5 +12,7 @@ urlpatterns = [
     path('categorias/', views.listar_categorias, name='listar_categorias'),
     path('detalles/<int:destino_id>/', views.detalles_destino, name='detalles_destino'),
     path('destino/<int:destino_id>/pdf/', views.generar_pdf, name='generar_pdf'),
+    path('detalles/<int:destino_id>/', views.detalles_destino, name='detalles_destino'),
+    path('detalles/<int:destino_id>/enviar_correo/', views.enviar_correo, name='enviar_correo'),
 
 ]

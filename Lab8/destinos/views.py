@@ -138,17 +138,17 @@ def generar_pdf(request, destino_id):
 
 def enviar_correo(request, destino_id):
     destino = get_object_or_404(DestinosTuristicos, id=destino_id)
-    subject = f'informacion del Destino: {destino.nombreCiudad}'
+    subject = f'Información del Destino: {destino.nombreCiudad}'
     message = {
-        f'Nombre de la Ciudad: {destino.nombreCiudad}'
-        f'Descripcion: {destino.descripcionCiudad}'
-        f'Precio: {destino.precioTour}'
+        f'Nombre de la Ciudad: {destino.nombreCiudad}\n'
+        f'Descripcion: {destino.descripcionCiudad}\n'
+        f'Precio: {destino.precioTour}\n'
         f'Oferta: {"Si" if destino.ofertaTour else "No"}\n'
     }
     from_email = 'wchoquehuancab@unsa.edu.pe'
     to_email = ['velmork313yt@gmail.com']
     try:
-        send_mail(subject, message, to_email)
+        send_mail(subject, message, from_email, to_email)
         return HttpResponse('Correo enviado correctamente.')
     except Exception as e:
         return HttpResponse(f'Error al enviar el correo: {e}')

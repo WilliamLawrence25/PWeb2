@@ -139,12 +139,14 @@ def generar_pdf(request, destino_id):
 def enviar_correo(request, destino_id):
     destino = get_object_or_404(DestinosTuristicos, id=destino_id)
     subject = f'Información del Destino: {destino.nombreCiudad}'
-    message = {
+    message = (
+        f'A CONTINUACION SE LE HACE CONOCER SOBRE EL DESTINO\n\n'
         f'Nombre de la Ciudad: {destino.nombreCiudad}\n'
         f'Descripcion: {destino.descripcionCiudad}\n'
         f'Precio: {destino.precioTour}\n'
-        f'Oferta: {"Si" if destino.ofertaTour else "No"}\n'
-    }
+        f'Oferta: {"Si" if destino.ofertaTour else "No"}\n\n'
+        f'Espero que este destino haya captado su interes y sea de su agrado\n'
+    )
     from_email = 'wchoquehuancab@unsa.edu.pe'
     to_email = ['velmork313yt@gmail.com']
     try:

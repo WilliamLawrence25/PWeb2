@@ -10,6 +10,8 @@ from reportlab.lib.pagesizes import letter
 from textwrap import wrap
 from urllib.parse import urljoin
 import tempfile
+from django.core.mail import send_mail
+
 
 def listar_destinos(request):
     destinos = DestinosTuristicos.objects.all()
@@ -133,3 +135,20 @@ def generar_pdf(request, destino_id):
 
     buffer.seek(0)
     return HttpResponse(buffer, content_type='application/pdf')
+
+def enviar_correo(request, destino_id):
+    destino = get_object_or_404(DestinosTuristicos, id=destino_id)
+    subject = f'informacion del Destino: {destino.nombreCiudad}'
+    message = {
+        f'Nombre de la Ciudad: {destino.nombreCiudad}'
+        f'Descripcion: {destino.descripcionCiudad}'
+        f'Precio: {destino.precioTour}'
+        f'Oferta: {"Si" if destino.ofertaTour else "No"}\n'
+    }
+    from_email = 'wchoquehuancab@unsa.edu.pe'
+    to_email = ['velmork313yt@gmail.com']
+    try:
+        send_mail(subject, message, to_email)
+        return HttpResponse('Correo enviado correctamente.')
+    except Exception as e:
+        return HttpResponse(f'Error al enviar el correo: {e}')
